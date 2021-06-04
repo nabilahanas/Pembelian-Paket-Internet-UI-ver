@@ -33,10 +33,10 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Paket Internet Bulanan");
-        setPreferredSize(new java.awt.Dimension(400, 400));
 
         jPanel1.setBackground(new java.awt.Color(220, 32, 36));
 
+        lbluname.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbluname.setForeground(new java.awt.Color(255, 255, 255));
         lbluname.setText("Username");
 
@@ -46,6 +46,7 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        lblpass.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblpass.setForeground(new java.awt.Color(255, 255, 255));
         lblpass.setText("Password");
 
@@ -145,7 +146,6 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
         if(txtuname.getText().trim().isEmpty() && txtpass.getText().trim().isEmpty()) {
             lbluname2.setText("Username kosong");
             lblpass2.setText("Password kosong");
@@ -178,17 +178,14 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void txtunameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtunameKeyReleased
-        // TODO add your handling code here:
         lbluname2.setText("");
     }//GEN-LAST:event_txtunameKeyReleased
 
     private void txtpassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpassKeyReleased
-        // TODO add your handling code here:
         lblpass2.setText("");
     }//GEN-LAST:event_txtpassKeyReleased
 

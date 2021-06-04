@@ -53,6 +53,7 @@ public class paket extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("emPATI");
 
+        lblnomor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblnomor.setForeground(new java.awt.Color(255, 255, 255));
         lblnomor.setText("Nomor Telepon");
 
@@ -67,6 +68,7 @@ public class paket extends javax.swing.JFrame {
             }
         });
 
+        lblpaket.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblpaket.setForeground(new java.awt.Color(255, 255, 255));
         lblpaket.setText("Paket Internet");
 
@@ -77,11 +79,19 @@ public class paket extends javax.swing.JFrame {
             }
         });
 
+        lblharga.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblharga.setForeground(new java.awt.Color(255, 255, 255));
         lblharga.setText("Harga Paket");
 
+        lbluang.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbluang.setForeground(new java.awt.Color(255, 255, 255));
         lbluang.setText("Uang Pembayaran");
+
+        txtuang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtuangKeyPressed(evt);
+            }
+        });
 
         beliButton.setText("Beli");
         beliButton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +144,13 @@ public class paket extends javax.swing.JFrame {
                                 .addComponent(lblpaket2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbluang)
-                        .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtuang, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbluang2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(lbluang2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(txtuang, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,7 +213,6 @@ public class paket extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnomorActionPerformed
 
     private void txtnomorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomorKeyPressed
-        // TODO add your handling code here:
         String nomor = txtnomor.getText();
         int length = nomor.length();
         char c = evt.getKeyChar();
@@ -223,7 +235,6 @@ public class paket extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnomorKeyPressed
 
     private void cmbpaketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbpaketActionPerformed
-        // TODO add your handling code here:
         String paket = (String) cmbpaket.getSelectedItem();
         switch (paket) {
             case "Pilih Paket":
@@ -251,7 +262,6 @@ public class paket extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbpaketActionPerformed
 
     private void beliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliButtonActionPerformed
-        // TODO add your handling code here:
         int bayar = Integer.parseInt(txtuang.getText());
         int hpaket = Integer.parseInt(txtharga.getText());
         int kembali = bayar - hpaket;
@@ -262,19 +272,18 @@ public class paket extends javax.swing.JFrame {
                     + " untuk pelanggan " + txtnomor.getText() + " telah aktif." 
                     + "\nBerlaku hingga " + tgl.getberlaku()
                     + "\nAnda memiliki uang kembalian sebesar Rp" + kembali
-                    + "\nTerima kasih telah melakukan transaksi.", "emPATI", JOptionPane.PLAIN_MESSAGE);
+                    + "\nTerima kasih telah melakukan transaksi.", "", JOptionPane.PLAIN_MESSAGE);
             txtnomor.setText("");
             cmbpaket.setSelectedIndex(0);
             txtharga.setText("");
             txtuang.setText("");
         }
         else {
-            JOptionPane.showMessageDialog(null, "Transaksi gagal. \n" + "Uang pembayaran tidak mencukupi", "emPATI", JOptionPane.PLAIN_MESSAGE);            
+            JOptionPane.showMessageDialog(null, "Transaksi gagal. \n" + "Uang pembayaran tidak mencukupi", "", JOptionPane.PLAIN_MESSAGE);            
         }     
     }//GEN-LAST:event_beliButtonActionPerformed
 
     private void batalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalButtonActionPerformed
-        // TODO add your handling code here:
         txtnomor.setText("");
         cmbpaket.setSelectedIndex(0);
         txtharga.setText("");
@@ -282,9 +291,30 @@ public class paket extends javax.swing.JFrame {
     }//GEN-LAST:event_batalButtonActionPerformed
 
     private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_keluarButtonActionPerformed
+
+    private void txtuangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtuangKeyPressed
+        String uang = txtuang.getText();
+        int length = uang.length();
+        char c = evt.getKeyChar();
+            if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
+                if(length<6){
+                    txtuang.setEditable(true);
+                }
+                else{
+                    txtuang.setEditable(false);
+                }
+            }
+            else{
+                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+                    txtuang.setEditable(true);
+                }
+                else{
+                    txtuang.setEditable(false);
+                }
+            }
+    }//GEN-LAST:event_txtuangKeyPressed
 
     /**
      * @param args the command line arguments
