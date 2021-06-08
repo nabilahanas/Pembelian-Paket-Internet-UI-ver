@@ -2,6 +2,7 @@ package tapdkp;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
 /**
  *
@@ -28,7 +29,6 @@ public class paket extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblnomor = new javax.swing.JLabel();
         txtnomor = new javax.swing.JTextField();
-        lblnomor2 = new javax.swing.JLabel();
         lblpaket = new javax.swing.JLabel();
         cmbpaket = new javax.swing.JComboBox<>();
         lblpaket2 = new javax.swing.JLabel();
@@ -36,10 +36,10 @@ public class paket extends javax.swing.JFrame {
         txtharga = new javax.swing.JTextField();
         lbluang = new javax.swing.JLabel();
         txtuang = new javax.swing.JTextField();
-        lbluang2 = new javax.swing.JLabel();
         beliButton = new javax.swing.JButton();
         batalButton = new javax.swing.JButton();
         keluarButton = new javax.swing.JButton();
+        lblkode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Paket Internet Bulanan");
@@ -114,6 +114,9 @@ public class paket extends javax.swing.JFrame {
             }
         });
 
+        lblkode.setBackground(new java.awt.Color(220, 32, 36));
+        lblkode.setForeground(new java.awt.Color(220, 32, 36));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,13 +124,6 @@ public class paket extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(beliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(batalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblnomor)
@@ -137,25 +133,28 @@ public class paket extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtharga)
                             .addComponent(cmbpaket, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblnomor2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtnomor)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblpaket2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblpaket2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbluang)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lbluang2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(txtuang, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(66, Short.MAX_VALUE))
+                            .addComponent(lblkode, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtuang, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(beliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(batalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,9 +165,7 @@ public class paket extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnomor)
                     .addComponent(txtnomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblnomor2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpaket)
                     .addComponent(cmbpaket, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,13 +180,13 @@ public class paket extends javax.swing.JFrame {
                     .addComponent(lbluang)
                     .addComponent(txtuang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbluang2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addComponent(lblkode, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(beliButton)
                     .addComponent(batalButton)
                     .addComponent(keluarButton))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,113 +205,121 @@ public class paket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnomorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomorActionPerformed
-        // TODO add your handling code here:  
-    }//GEN-LAST:event_txtnomorActionPerformed
+    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_keluarButtonActionPerformed
 
-    private void txtnomorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomorKeyPressed
-        String nomor = txtnomor.getText();
-        int length = nomor.length();
-        char c = evt.getKeyChar();
-            if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
-                if(length<12){
-                    txtnomor.setEditable(true);
-                }
-                else{
-                    txtnomor.setEditable(false);
-                }
-            }
-            else{
-                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
-                    txtnomor.setEditable(true);
-                }
-                else{
-                    txtnomor.setEditable(false);
-                }
-            }
-    }//GEN-LAST:event_txtnomorKeyPressed
-
-    private void cmbpaketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbpaketActionPerformed
-        String paket = (String) cmbpaket.getSelectedItem();
-        switch (paket) {
-            case "Pilih Paket":
-                lblpaket2.setText("Anda belum memilih paket");
-                harga = 0;
-                break;
-            case "35GB/1Bln":
-                lblpaket2.setText("");                
-                harga = 85000;
-                break;
-            case "15GB/1Bln":
-                lblpaket2.setText("");                
-                harga = 65000;
-                break;
-            case "5GB/1Bln":
-                lblpaket2.setText("");                
-                harga = 40000;
-                break;
-            case "3GB/1Bln":
-                lblpaket2.setText("");                
-                harga = 30000;
-                break;
-            }
-                txtharga.setText(""+Integer.toString(harga));
-    }//GEN-LAST:event_cmbpaketActionPerformed
+    private void batalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalButtonActionPerformed
+        txtnomor.setText("");
+        cmbpaket.setSelectedIndex(0);
+        txtharga.setText("");
+        txtuang.setText("");
+    }//GEN-LAST:event_batalButtonActionPerformed
 
     private void beliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliButtonActionPerformed
+        java.util.Random r = new java.util.Random();
+        int start = 100000000;
+        int end = 999999999;
+        int result = r.nextInt(end-start) + start;
+        lblkode.setText(String.valueOf(result));
+
         int bayar = Integer.parseInt(txtuang.getText());
         int hpaket = Integer.parseInt(txtharga.getText());
         int kembali = bayar - hpaket;
+
         berlaku tgl = new berlaku();
         tgl.setBerlaku("30 Juni 2021.");
         if (bayar >= hpaket) {
             JOptionPane.showMessageDialog(null, "Selamat! Paket Internet " + cmbpaket.getSelectedItem()
-                    + " untuk pelanggan " + txtnomor.getText() + " telah aktif." 
-                    + "\nBerlaku hingga " + tgl.getberlaku()
-                    + "\nAnda memiliki uang kembalian sebesar Rp" + kembali
-                    + "\nTerima kasih telah melakukan transaksi.", "", JOptionPane.PLAIN_MESSAGE);
+                + " untuk pelanggan " + txtnomor.getText() + " telah aktif."
+                + "\nBerlaku hingga " + tgl.getberlaku()
+                + "\nKode aktivasi paket " + lblkode.getText()                    
+                + "\nAnda memiliki uang kembalian sebesar Rp" + kembali
+                + "\nTerima kasih telah melakukan transaksi.", "", JOptionPane.PLAIN_MESSAGE);
             txtnomor.setText("");
             cmbpaket.setSelectedIndex(0);
             txtharga.setText("");
             txtuang.setText("");
         }
         else {
-            JOptionPane.showMessageDialog(null, "Transaksi gagal. \n" + "Uang pembayaran tidak mencukupi", "", JOptionPane.PLAIN_MESSAGE);            
-        }     
+            JOptionPane.showMessageDialog(null, "Transaksi gagal. \n" + "Uang pembayaran tidak mencukupi", "", JOptionPane.PLAIN_MESSAGE);
+        }
     }//GEN-LAST:event_beliButtonActionPerformed
-
-    private void batalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalButtonActionPerformed
-        txtnomor.setText("");
-        cmbpaket.setSelectedIndex(0);
-        txtharga.setText("");
-        txtuang.setText("");       
-    }//GEN-LAST:event_batalButtonActionPerformed
-
-    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_keluarButtonActionPerformed
 
     private void txtuangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtuangKeyPressed
         String uang = txtuang.getText();
         int length = uang.length();
         char c = evt.getKeyChar();
-            if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
-                if(length<6){
-                    txtuang.setEditable(true);
-                }
-                else{
-                    txtuang.setEditable(false);
-                }
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
+            if(length<6){
+                txtuang.setEditable(true);
             }
             else{
-                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
-                    txtuang.setEditable(true);
-                }
-                else{
-                    txtuang.setEditable(false);
-                }
+                txtuang.setEditable(false);
             }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+                txtuang.setEditable(true);
+            }
+            else{
+                txtuang.setEditable(false);
+            }
+        }
     }//GEN-LAST:event_txtuangKeyPressed
+
+    private void cmbpaketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbpaketActionPerformed
+        String paket = (String) cmbpaket.getSelectedItem();
+        switch (paket) {
+            case "Pilih Paket":
+            lblpaket2.setText("Anda belum memilih paket");
+            harga = 0;
+            break;
+            case "35GB/1Bln":
+            lblpaket2.setText("");
+            harga = 85000;
+            break;
+            case "15GB/1Bln":
+            lblpaket2.setText("");
+            harga = 65000;
+            break;
+            case "5GB/1Bln":
+            lblpaket2.setText("");
+            harga = 40000;
+            break;
+            case "3GB/1Bln":
+            lblpaket2.setText("");
+            harga = 30000;
+            break;
+        }
+        txtharga.setText(""+Integer.toString(harga));
+    }//GEN-LAST:event_cmbpaketActionPerformed
+
+    private void txtnomorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomorKeyPressed
+        String nomor = txtnomor.getText();
+        int length = nomor.length();
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
+            if(length<12){
+                txtnomor.setEditable(true);
+            }
+            else{
+                txtnomor.setEditable(false);
+            }
+        }
+        else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+                txtnomor.setEditable(true);
+            }
+            else{
+                txtnomor.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtnomorKeyPressed
+
+    private void txtnomorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnomorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,12 +364,11 @@ public class paket extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton keluarButton;
     private javax.swing.JLabel lblharga;
+    private javax.swing.JLabel lblkode;
     private javax.swing.JLabel lblnomor;
-    private javax.swing.JLabel lblnomor2;
     private javax.swing.JLabel lblpaket;
     private javax.swing.JLabel lblpaket2;
     private javax.swing.JLabel lbluang;
-    private javax.swing.JLabel lbluang2;
     private javax.swing.JTextField txtharga;
     private javax.swing.JTextField txtnomor;
     private javax.swing.JTextField txtuang;
